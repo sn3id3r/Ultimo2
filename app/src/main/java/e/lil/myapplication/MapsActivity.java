@@ -91,7 +91,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMyLocationEnabled(true);
     }
 
-    public void GPS(View view) {
+    public void Service(View view) {
 
         String Email = getIntent().getStringExtra("Correo");
         int pos = Email.indexOf("@");
@@ -108,14 +108,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 latitud = location.getLatitude();
                 longitud = location.getLongitude();
 
-             /*   //Guardando Coordenadas en la base de datos
-                DatabaseReference Latitud = reference.child("Usuarios Activos").child(Usuario).child("Latitud");
-                Latitud.setValue(latitud);
-                DatabaseReference Longitud = reference.child("Usuarios Activos").child(Usuario).child("Longitud");
-                Longitud.setValue(longitud);*/
-                DatabaseReference Latitud = reference.child("Usuarios Activos");
-                Latitud.setValue("No hay usuarios Activos ");
+                DatabaseReference Activo = reference.child("Usuarios Activos");
+                Activo.child(Usuario).setValue("Activo");
 
+                Toast.makeText(MapsActivity.this, "La:" +latitud +"Lo:" + longitud, Toast.LENGTH_SHORT).show();
+
+                //Guardando Coordenadas en la base de datos
+                DatabaseReference Ubication = reference.child("Usuarios").child(Usuario).child("Ubicación");
+                Ubication.child("Latitud").setValue(latitud);
+                Ubication.child("Longitud").setValue(longitud);
             }
 
             public void onStatusChanged(String provider, int status, Bundle extras) {}

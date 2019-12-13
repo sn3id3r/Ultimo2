@@ -113,4 +113,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    public void Conductores(View view) {
+        Intent intent = new Intent(this, Conductores.class);
+        startActivity(intent);
+    }
 }

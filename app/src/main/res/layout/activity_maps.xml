@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:onClick="GPS"
+            android:onClick="Service"
             android:text="Solicitar Servicio" />
 
     </RelativeLayout>
