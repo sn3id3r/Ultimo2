@@ -36,6 +36,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public static final String Email = "Correo";
 
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference Activo = reference.child("Usuarios Activos");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +97,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String Email = getIntent().getStringExtra("Correo");
         int pos = Email.indexOf("@");
         final String Usuario = Email.substring(0,pos);
+        final DatabaseReference Ubication = reference.child("Usuarios").child(Usuario).child("Ubicación");
+        DatabaseReference Estado = reference.child("Usuarios").child(Usuario).child("Estado");
+        Estado.setValue("Solicitando Servicio");
 
 
         // Acquire a reference to the system Location Manager
@@ -108,13 +112,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 latitud = location.getLatitude();
                 longitud = location.getLongitude();
 
-                DatabaseReference Activo = reference.child("Usuarios Activos");
                 Activo.child(Usuario).setValue("Activo");
 
-                Toast.makeText(MapsActivity.this, "La:" +latitud +"Lo:" + longitud, Toast.LENGTH_SHORT).show();
-
                 //Guardando Coordenadas en la base de datos
-                DatabaseReference Ubication = reference.child("Usuarios").child(Usuario).child("Ubicación");
                 Ubication.child("Latitud").setValue(latitud);
                 Ubication.child("Longitud").setValue(longitud);
             }

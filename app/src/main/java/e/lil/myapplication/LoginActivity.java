@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
 
         TxtEmail = (EditText)findViewById(R.id.TextEmail);
         TxtPassword = (EditText) findViewById(R.id.TextPassword);
-
     }
 
     public void Registrar(View view) {
