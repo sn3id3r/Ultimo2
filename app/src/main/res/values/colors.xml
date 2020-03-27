@@ -3,4 +3,12 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="gradStart">#212121</color>
+    <color name="gradStop">#212121</color>
+    <color name="JenniC">#f40505</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="amarillo">#feda10</color>
+
+
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Conductores">
 
     <fragment
@@ -17,11 +18,19 @@
         android:id="@+id/boton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_form"
+        android:fontFamily="casual"
         android:text="Aceptar Servicio"
+        android:paddingLeft="30dp"
+        android:paddingRight="20dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:visibility="invisible"
+        android:visibility="visible"
+        android:textColor="@color/amarillo"
+        android:textSize="16dp"
         android:onClick="Aceptar"
         />
 
