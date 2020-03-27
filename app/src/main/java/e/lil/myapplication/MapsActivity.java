@@ -1,8 +1,11 @@
 package e.lil.myapplication;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -12,6 +15,8 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,6 +37,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     double latitud = 0;
     double longitud = 0;
+    boolean mensaje;
+
+    Dialog dialog;
 
     public static final String Email = "Correo";
 
@@ -70,6 +78,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else {
             // Permission has already been granted
         }
+
+        dialog = new Dialog(this);
+
     }
 
     /**
@@ -108,6 +119,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location location) {
+                mensaje = true;
+
                 // Called when a new location is found by the network location provider.
                 latitud = location.getLatitude();
                 longitud = location.getLongitude();
@@ -133,5 +146,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Register the listener with the Location Manager to receive location updates
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 
+        if (mensaje == true) {
+            // ------- Ventana Emergente-------------
+
+            TextView textView;
+            Button button;
+
+            dialog.setContentView(R.layout.window);
+
+            textView = (TextView) dialog.findViewById(R.id.text);
+            button = (Button) dialog.findViewById(R.id.close);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.show();
+        }
     }
 }

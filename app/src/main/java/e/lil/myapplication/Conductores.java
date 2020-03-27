@@ -1,7 +1,10 @@
 package e.lil.myapplication;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -34,6 +37,8 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
     String Usuarios[]  = new String[50];
     int pos, Lenght, i=0;
     Button button;
+    String Usuario;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,11 +78,10 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
         Database();
 
         button = (Button) findViewById(R.id.boton);
+        dialog = new Dialog(this);
     }
 
     private void Database() {
-
-
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("Usuarios Activos").addValueEventListener(new ValueEventListener() {
@@ -183,7 +187,7 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public boolean onMarkerClick(Marker marker) {
 
-                Toast.makeText(Conductores.this, "Clic sobre marca: "+ marker.getTitle(), Toast.LENGTH_SHORT).show();
+                Usuario = marker.getTitle();
                 button.setVisibility(View.VISIBLE);
                 return false;
             }
@@ -199,7 +203,47 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
 
     public void Aceptar(View view) {
 
-        Toast.makeText(this, "Boton Oprimido", Toast.LENGTH_SHORT).show();
+        mDatabase.child("Usuarios").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mMap.clear();
+                String Latitud = dataSnapshot.child(Usuario).child("Ubicación").child("Latitud").getValue().toString();
+                String Longitud = dataSnapshot.child(Usuario).child("Ubicación").child("Longitud").getValue().toString();
 
+                double Lat = Double.parseDouble(Latitud);
+                double Lng = Double.parseDouble(Longitud);
+
+                LatLng user = new LatLng(Lat, Lng);
+                mMap.addMarker(new MarkerOptions().position(user).title(Usuario));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(user,13));
+
+                button.setText("Información");
+                //button.setTextColor(Color.WHITE);
+                //button.setBackgroundColor(Color.CYAN);
+
+                TextView textView;
+                Button button;
+
+                dialog.setContentView(R.layout.window);
+
+                textView = (TextView) dialog.findViewById(R.id.text);
+                button = (Button) dialog.findViewById(R.id.close);
+                textView.setText(R.string.Mensaje_2);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="title_activity_maps">Map</string>
+    <string name="Mensaje_1">Gracias por confiar en nosostros,
+        en unos minutos te asignaremos un conductor.</string>
+    <string name="Mensaje_2">Por favor dirijase a la ubicación del usuario</string>
 </resources>
