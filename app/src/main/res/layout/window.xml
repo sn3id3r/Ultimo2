@@ -1,58 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="350dp"
     android:layout_height="475dp"
     android:layout_gravity="center"
-    android:orientation="vertical"
     android:background="@drawable/pemerg"
-    android:alpha="1"
+    android:orientation="vertical"
     android:padding="50dp">
+
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:gravity="center"
         android:text="@string/Mensaje_1"
-        android:textStyle="bold" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/gradStop"
+        app:fontFamily="casual" />
+
 
     <TextView
         android:id="@+id/text1"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text"
+        android:layout_marginTop="20dp"
+        android:fontFamily="casual"
+        android:textColor="@color/gradStop"
+        android:textSize="18dp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/text2"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text1"
+        android:layout_marginTop="10dp"
+        android:fontFamily="casual"
+        android:textColor="@color/gradStop"
+        android:textSize="18dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/text3"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text2"
+        android:layout_marginTop="10dp"
+        android:fontFamily="casual"
+        android:textColor="@color/gradStop"
+        android:textSize="18dp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/text4"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/text3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text3"
+        android:layout_marginTop="10dp"
+        android:fontFamily="casual"
+        android:textColor="@color/gradStop"
+        android:textSize="18dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/close"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_bg"
+        android:fontFamily="casual"
+        android:onClick="cerrar"
         android:text="Close"
-        android:onClick="cerrar"/>
+        android:textAllCaps="false"
+        android:textColor="@color/amarillo"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
 
 </RelativeLayout>

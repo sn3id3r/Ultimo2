@@ -7,13 +7,15 @@
         android:bottomRightRadius="20dp" />
 
     <stroke
-        android:width="4dp"
-        android:color="@color/amarillo"
+        android:width="5dp"
+        android:color="@color/gradStop"
 
         />
 
     <solid
+
         android:color="@color/Rojizo"
         />
+
 
 </shape>

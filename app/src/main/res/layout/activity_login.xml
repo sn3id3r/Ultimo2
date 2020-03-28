@@ -102,7 +102,22 @@
                             android:textSize="15dp" />
 
                     </LinearLayout>
-
+                    <Button
+                        android:id="@+id/Ingresar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="40dp"
+                        android:background="@drawable/btn_bg"
+                        android:fontFamily="casual"
+                        android:onClick="Ingresar"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="20dp"
+                        android:text="Ingresar ahora"
+                        android:textAllCaps="false"
+                        android:textColor="@color/amarillo"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -144,22 +159,7 @@
             android:textColor="@color/amarillo"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/Ingresar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/btn_bg"
-            android:fontFamily="casual"
-            android:onClick="Ingresar"
-            android:paddingLeft="30dp"
-            android:paddingRight="20dp"
-            android:text="Ingresar ahora"
-            android:textAllCaps="false"
-            android:textColor="@color/amarillo"
-            android:textSize="16dp"
-            android:textStyle="bold" />
+
 
     </RelativeLayout>
 </RelativeLayout>

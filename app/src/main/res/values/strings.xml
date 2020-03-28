@@ -2,8 +2,8 @@
     <string name="app_name">My Application</string>
     <string name="title_activity_maps">Map</string>
     <string name="Mensaje_1">Gracias por confiar en nosostros,
-        en unos minutos uno de nuestros conductores se comunicará con tigo.</string>
-    <string name="Mensaje_2">Por favor dirijase a la ubicación del usuario</string>
+        en unos minutos uno de nuestros conductores se comunicará contigo. Recuerda que la tarifa del viaje será de $4.000</string>
+    <string name="Mensaje_2">Por favor dirijase a la ubicación del usuario.Re</string>
     <string name="Tx1">Nombre: </string>
     <string name="Tx2">Celular: </string>
 </resources>
