@@ -207,6 +207,7 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mMap.clear();
+                
                 String Latitud = dataSnapshot.child(Usuario).child("Ubicación").child("Latitud").getValue().toString();
                 String Longitud = dataSnapshot.child(Usuario).child("Ubicación").child("Longitud").getValue().toString();
                 String Celular = dataSnapshot.child(Usuario).child("Celular").getValue().toString();
