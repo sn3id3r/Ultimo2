@@ -207,7 +207,7 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mMap.clear();
-                
+
                 String Latitud = dataSnapshot.child(Usuario).child("Ubicación").child("Latitud").getValue().toString();
                 String Longitud = dataSnapshot.child(Usuario).child("Ubicación").child("Longitud").getValue().toString();
                 String Celular = dataSnapshot.child(Usuario).child("Celular").getValue().toString();
@@ -230,10 +230,10 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
                 dialog.setContentView(R.layout.window);
 
                 textView = (TextView) dialog.findViewById(R.id.text);
-                textView1 = (TextView) dialog.findViewById(R.id.text2);
-                textView2 = (TextView) dialog.findViewById(R.id.text3);
-                textView3 = (TextView) dialog.findViewById(R.id.text4);
-                textView4 = (TextView) dialog.findViewById(R.id.text5);
+                textView1 = (TextView) dialog.findViewById(R.id.text1);
+                textView2 = (TextView) dialog.findViewById(R.id.text2);
+                textView3 = (TextView) dialog.findViewById(R.id.text3);
+                textView4 = (TextView) dialog.findViewById(R.id.text4);
 
                 button = (Button) dialog.findViewById(R.id.close);
 
