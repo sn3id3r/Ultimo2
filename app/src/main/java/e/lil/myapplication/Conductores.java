@@ -210,6 +210,7 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
                 String Latitud = dataSnapshot.child(Usuario).child("Ubicación").child("Latitud").getValue().toString();
                 String Longitud = dataSnapshot.child(Usuario).child("Ubicación").child("Longitud").getValue().toString();
                 String Celular = dataSnapshot.child(Usuario).child("Celular").getValue().toString();
+                String Nombre = dataSnapshot.child(Usuario).child("Nombre").getValue().toString();
 
                 double Lat = Double.parseDouble(Latitud);
                 double Lng = Double.parseDouble(Longitud);
@@ -237,7 +238,7 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
 
                 textView.setText(R.string.Mensaje_2);
                 textView1.setText(R.string.Tx1);
-                textView2.setText(Usuario);
+                textView2.setText(Nombre);
                 textView3.setText(R.string.Tx2);
                 textView4.setText(Celular);
 
