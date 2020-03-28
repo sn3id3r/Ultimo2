@@ -209,6 +209,7 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
                 mMap.clear();
                 String Latitud = dataSnapshot.child(Usuario).child("Ubicación").child("Latitud").getValue().toString();
                 String Longitud = dataSnapshot.child(Usuario).child("Ubicación").child("Longitud").getValue().toString();
+                String Celular = dataSnapshot.child(Usuario).child("Celular").getValue().toString();
 
                 double Lat = Double.parseDouble(Latitud);
                 double Lng = Double.parseDouble(Longitud);
@@ -221,14 +222,25 @@ public class Conductores extends AppCompatActivity implements OnMapReadyCallback
                 //button.setTextColor(Color.WHITE);
                 //button.setBackgroundColor(Color.CYAN);
 
-                TextView textView;
+                TextView textView, textView1, textView2, textView3, textView4;
                 Button button;
 
                 dialog.setContentView(R.layout.window);
 
                 textView = (TextView) dialog.findViewById(R.id.text);
+                textView1 = (TextView) dialog.findViewById(R.id.text2);
+                textView2 = (TextView) dialog.findViewById(R.id.text3);
+                textView3 = (TextView) dialog.findViewById(R.id.text4);
+                textView4 = (TextView) dialog.findViewById(R.id.text5);
+
                 button = (Button) dialog.findViewById(R.id.close);
+
                 textView.setText(R.string.Mensaje_2);
+                textView1.setText(R.string.Tx1);
+                textView2.setText(Usuario);
+                textView3.setText(R.string.Tx2);
+                textView4.setText(Celular);
+
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
