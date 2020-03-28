@@ -30,9 +30,10 @@
             android:id="@+id/rellay1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
             android:layout_below="@+id/imgView_Logo"
             android:layout_marginTop="-15dp"
-            android:visibility="visible">
+            >
 
             <LinearLayout
                 android:id="@+id/linlay1"
@@ -132,7 +133,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <Button
             android:id="@+id/Registrar"
